@@ -1,0 +1,14 @@
+<!--
+  Used for visualising rplidar in action.  
+  
+  It requires rplidar.launch.
+ -->
+<launch>
+    <include ns="lidar0" file="$(find rplidar_ros)/launch/rplidar_arg.launch">
+        <arg name="serial_port" value="/dev/ttyUSB0"/>
+    </include>
+    <include ns="lidar1" file="$(find rplidar_ros)/launch/rplidar_arg.launch">
+        <arg name="serial_port" value="/dev/ttyUSB1"/>
+    </include>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rplidar_ros)/rviz/rplidar.rviz" />
+</launch>
